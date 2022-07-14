@@ -15,6 +15,7 @@ pipeline {
         stage('build') {
             steps {
                 sh './gradlew build'
+		sh 'jar -cvmf MANIFEST.MF /build/libs/caesar-cipher.jar caesars-cipher.class
             }
         }
         stage('Release') {
@@ -29,7 +30,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'java -jar./gradle/wrapper/gradle-wrapper.jar '
+                sh 'java -jar ./build/libs/caesar-cipher.jar '
             }
         }
     }
