@@ -29,7 +29,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                sh 'java src/main/java/caesars/cipher/Main.java''
             }
         }
     }
