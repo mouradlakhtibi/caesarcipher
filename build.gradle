@@ -21,7 +21,7 @@ jar {
     archivesBaseName='caesar-cipher'
     manifest {
         attributes 'Implementation-Title': 'Caesar cipher',
-                   'Main-Class': 'caesars.cipher.Main'
+                   'Main-Class': 'caesars-cipher.Main'
     }
 }
 dependencies {
