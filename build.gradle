@@ -18,7 +18,7 @@ repositories {
     jcenter()
 }
 jar {
-    archiveBaseName = 'caesar-cipher'
+    archivesBaseName='caesar-cipher'
     manifest {
         attributes 'Implementation-Title': 'Caesar cipher',
                    'Main-Class': 'caesars.cipher.Main'
