@@ -15,7 +15,7 @@ pipeline {
         stage('build') {
             steps {
                 sh './gradlew build'
-		sh 'jar -cvmf MANIFEST.MF /build/libs/caesar-cipher.jar caesars-cipher.class''
+		sh 'jar -cvmf MANIFEST.MF /build/libs/caesar-cipher.jar caesars-cipher.class'
             }
         }
         stage('Release') {
