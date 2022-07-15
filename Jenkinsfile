@@ -3,7 +3,7 @@ pipeline {
     environment {
         token = credentials('caeser-pipline')
     }
-
+     
     stages {
         stage('Preparing gradlew') {
             steps {
@@ -20,7 +20,7 @@ pipeline {
                 sh './gradlew build'
 
             }
-        }
+        }    
         stage('Release') {
             steps {
                 sh 'tag=$(git describe --tags)'
@@ -29,8 +29,8 @@ pipeline {
                 sh 'description=$(echo $message | tail -n +3)'
                 sh 'release=$(curl -XPOST -H "Authorization:token $token" --data \'{"tag_name": "$tag", "target_commitish": "main", "name": "$name", "body": "$description", "draft": false, "prerelease": false}\' "https://api.github.com/repos/sunragnawa/caesarcipher/releases/")'
             }
-        }
-        stage('Deploy') {
+        }    
+        stage ('deploying') {
             steps {
                 sh 'deploying '
             }
