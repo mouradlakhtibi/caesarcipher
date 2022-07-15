@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        token = credentials('caeser-pipline')
+    }
 
     stages {
         stage('Preparing gradlew') {
@@ -20,7 +23,6 @@ pipeline {
         }
         stage('Release') {
             steps {
-                sh 'token="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"'
                 sh 'tag=$(git describe --tags)'
                 sh 'message="$(git for-each-ref refs/tags/$tag --format=\'%(contents)\')"'
                 sh 'name=$(echo "$message" | head -n1)'
@@ -30,7 +32,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'java -jar ./build/libs/caesar-cipher.jar '
+                sh 'deploying '
             }
         }
     }
