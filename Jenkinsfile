@@ -2,8 +2,8 @@ pipeline {
     agent any
     environment {
         token = credentials('caeser-pipline')
-        tag = "v2.0"
-        message = "realeasing v2.0"
+        tag = "v1.0"
+        message = "realeasing v1.0"
         name = "release-v2.0"
         description = "halliluya"
         
