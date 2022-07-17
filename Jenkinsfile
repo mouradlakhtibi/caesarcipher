@@ -20,10 +20,10 @@ pipeline {
                 sh './gradlew build'
 
             }
-        }    
+        }   
         stage('Release') {
             steps {
-                sh 'tag=$(git describe --tags)'
+                sh 'tag="$(git describe --tags)"'
                 sh 'message="$(git for-each-ref refs/tags/$tag --format=\'%(contents)\')"'
                 sh 'name="$(echo $message | head -n1)"'
                 sh 'description="$(echo $message | tail -n +3)"'
