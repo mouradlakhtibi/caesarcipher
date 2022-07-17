@@ -2,10 +2,10 @@ pipeline {
     agent any
     environment {
         token = credentials('caeser-pipline')
-        tag = "$(git describe --tags)"
-        message = "$(git for-each-ref refs/tags/$tag --format=\'%(contents)\')"
-        name = "$(echo $message | head -n1)"
-        description = "$(echo $message | tail -n +3)"
+        tag = "(git describe --tags)"
+        message = "(git for-each-ref refs/tags/$tag --format=\'%(contents)\')"
+        name = "(echo $message | head -n1)"
+        description = "(echo $message | tail -n +3)"
         
 
         
