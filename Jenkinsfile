@@ -25,7 +25,7 @@ pipeline {
         }   
         stage('Release') {
             steps {
-                sh 'token= "${git describe --tags}"'
+                sh 'token= "$(git describe --tags)"'
                 sh 'name = "release" + "${token}"'
                 sh 'description = "halliluya"'
                  
@@ -38,4 +38,3 @@ pipeline {
             }
         }
     }
-}
