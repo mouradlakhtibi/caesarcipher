@@ -25,10 +25,10 @@ pipeline {
         }   
         stage('Release') {
             steps {
-                sh "tag=${git describe --tags}"
+                sh 'tag="${git describe --tags}"'
                 sh "echo ${tag}"
-                sh "name= 'version' + ${tag}"
-                sh "description = 'halliluya'"
+                sh 'name="version"+"${tag}"'
+                sh 'description="halliluya"'
                  
                 sh 'release=$(curl "User-Agent:sunragnawa" -XPOST -H "Authorization:token $token" --data \'{"tag_name": "${tag}", "target_commitish": "main", "name": "${name}", "body": "${description}", "draft": false, "prerelease": false}\' "https://api.github.com/repos/sunragnawa/caesarcipher/releases")'
             }
