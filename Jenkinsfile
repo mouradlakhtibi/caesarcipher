@@ -26,7 +26,7 @@ pipeline {
         stage('Release') {
             steps {
                 sh tag="${git describe --tags}"
-                sh echo "${tag}"'
+                sh echo "${tag}"
                 sh name= "version" + "${tag}"
                 sh description = "halliluya"
                  
